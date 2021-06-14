@@ -1,0 +1,72 @@
+:host {
+  display: block;
+  padding-top: 25px;
+  padding-bottom: 25px;
+  max-width: 100%;
+  .container {
+    max-width: 100%;
+    display: block;
+    justify-content: center;
+    align-items: center;
+    width: 768px;
+    margin: 0 auto 0;
+    padding: 2em;
+    background-color: #f7fafd;
+    border-radius: 8px;
+    box-shadow: 3px 3px 3px 1px rgba(0, 0, 0, 0.2);
+  }
+  img {
+    max-width: 100%;
+    width: 200px;
+    padding-top: 1em;
+    padding-bottom: 0;
+    margin: 0 auto 0;
+    display: block;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .todo-input {
+    width: 98%;
+    padding: 10px;
+    font-size: 22px;
+    margin-bottom: 16px;
+    border-radius: 8px;
+    border: none;
+    background-color: #c7ddf2;
+    &:focus {
+      outline: 0;
+    }
+  }
+
+  .extra-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 16px;
+    border-top: 1px solid lightgrey;
+    padding-top: 14px;
+    margin-bottom: 14px;
+  }
+
+  button {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 3px;
+    border: none;
+    margin-right: 5px;
+    background-color: #c7ddf2;
+
+    &:hover {
+      background: #ffe2e3;
+    }
+
+    &:focus {
+      outline: none;
+    }
+  }
+
+  .active {
+    background: #d2ccf9;
+  }
+}

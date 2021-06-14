@@ -1,0 +1,90 @@
+<img src="../../assets/gatito (copy) (1).png" alt="" srcset="" />
+<div
+  class="container"
+  cdkDropList
+  (cdkDropListDropped)="todoService.drop($event)"
+>
+  <input
+    type="text"
+    class="todo-input"
+    placeholder="What needs to be done"
+    [(ngModel)]="todoTitle"
+    (keyup.enter)="addTodo()"
+  />
+  <app-todo-item
+    class="example-list"
+    cdkDrag
+    *ngFor="let todo of todoService.todosFiltered()"
+    [todo]="todo"
+    (checkedItem) ="todoService.doneEdit($event)"
+    (doubleClickedItem)="todoService.editTodo($event)"
+    (enteredItem)="todoService.doneEdit($event)"
+    (blurredItem)="todoService.doneEdit($event)"
+    (cancelledItem)="todoService.cancelEdit($event)"
+    (deletedItem)="todoService.deleteTodo($event)"
+  ></app-todo-item>
+  <!-- <div class="todo-item" *ngFor="let todo of todosFiltered()">
+    <div class="todo-item-left">
+      <input type="checkbox" id="" [(ngModel)]="todo.completed" />
+      <div
+        *ngIf="!todo.editing"
+        class="todo-item-label"
+        [ngClass]="{ completed: todo.completed }"
+        (dblclick)="editTodo(todo)"
+      >
+        {{ todo.title }}
+      </div>
+
+      <input
+        *ngIf="todo.editing"
+        (blur)="doneEdit(todo)"
+        (keyup.enter)="doneEdit(todo)"
+        (keyup.esc)="cancelEdit(todo)"
+        type="text"
+        class="todo-item-edit"
+        [(ngModel)]="todo.title"
+      />
+    </div>
+    <div class="remove-item" (click)="deleteTodo(todo.id)">&times;</div>
+  </div> -->
+
+  <div class="extra-container">
+    <div>
+      <label>
+        <input
+          type="checkbox"
+          (input)="todoService.toggleCheck($event.target.checked)"
+        />
+        Check all
+      </label>
+    </div>
+    <div>{{ todoService.remaining() }} items left</div>
+  </div>
+
+  <div class="extra-container">
+    <div>
+      <button
+        [ngClass]="{ active: todoService.filter === 'all' }"
+        (click)="todoService.filter = 'all'"
+      >
+        All
+      </button>
+      <button
+        [ngClass]="{ active: todoService.filter === 'active' }"
+        (click)="todoService.filter = 'active'"
+      >
+        Active
+      </button>
+      <button
+        [ngClass]="{ active: todoService.filter === 'completed' }"
+        (click)="todoService.filter = 'completed'"
+      >
+        Completed
+      </button>
+    </div>
+
+    <div *ngIf="todoService.atLeastOneCompleted()">
+      <button (click)="todoService.clearCompleted()">Clear Completed</button>
+    </div>
+  </div>
+</div>
