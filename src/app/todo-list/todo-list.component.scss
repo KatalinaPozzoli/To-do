@@ -5,11 +5,11 @@
   max-width: 100%;
   .container {
     max-width: 100%;
-    display: block;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    width: 768px;
-    margin: 0 auto 0;
+    align-items: start;
+    margin: 0 1em 1em 1em;
     padding: 2em;
     background-color: #f7fafd;
     border-radius: 8px;
@@ -27,12 +27,13 @@
   }
 
   .todo-input {
-    width: 98%;
-    padding: 10px;
-    font-size: 22px;
-    margin-bottom: 16px;
-    border-radius: 8px;
+    width: calc(100% - 0.5em);
+    height: 54px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    border-radius: 12px;
     border: none;
+    padding-left: 0.5em;
     background-color: #c7ddf2;
     &:focus {
       outline: 0;
@@ -40,6 +41,7 @@
   }
 
   .extra-container {
+    width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -55,6 +57,7 @@
     border-radius: 3px;
     border: none;
     margin-right: 5px;
+    margin-bottom: 5px;
     background-color: #c7ddf2;
 
     &:hover {
